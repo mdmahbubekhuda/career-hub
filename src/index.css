@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.job-title span,
+.job-title h1 {
+  font-weight: bold;
+  margin-right: 5px;
+}

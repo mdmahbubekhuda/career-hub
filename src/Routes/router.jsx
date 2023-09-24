@@ -5,6 +5,7 @@ import Statistics from "../Pages/Statistics";
 import AppliedJobs from "../Pages/AppliedJobs";
 import Blog from "../Pages/Blog";
 import ErrorPage from "../Pages/ErrorPage";
+import JobDetails from "../components/JobDetails/JobDetails";
 
 const router = createBrowserRouter([
   {
@@ -23,10 +24,16 @@ const router = createBrowserRouter([
       {
         path: "/applied-jobs",
         element: <AppliedJobs />,
+        loader: () => fetch("/jobs.json"),
       },
       {
         path: "/blog",
         element: <Blog />,
+      },
+      {
+        path: "/job/:id",
+        element: <JobDetails />,
+        loader: async () => await fetch("../jobs.json"),
       },
     ],
   },
